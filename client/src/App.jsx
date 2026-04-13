@@ -5,13 +5,7 @@ import ResultsPage from './pages/ResultsPage'
 
 export default function App() {
     const [page, setPage] = React.useState("startPage")
-    const [selected, setSelected] = React.useState({
-        questionOne: "",
-        questionTwo: "",
-        questionThree: "",
-        questionFour: "",
-        questionFive: "",
-    })
+    const [selected, setSelected] = React.useState({})
 
     function startQuiz()  {
         setPage("quizPage")
@@ -19,7 +13,7 @@ export default function App() {
 
     return (
         <>
-            {page === "startPage" ? <StartPage startQuiz={startQuiz} /> : page === "quizPage" ? <QuizPage selected={selected} setSelected={setSelected} /> : <ResultsPage selected={selected} setSelected={setSelected} />}
+            {page === "startPage" ? <StartPage startQuiz={startQuiz} /> : page === "quizPage" ? <QuizPage setPage={setPage} selected={selected} setSelected={setSelected} /> : <ResultsPage selected={selected} setSelected={setSelected} />}
         </>
     )
 }

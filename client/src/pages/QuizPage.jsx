@@ -1,16 +1,17 @@
 
 
-export default function QuizPage({ selected, setSelected }) {
+export default function QuizPage({ setPage, selected, setSelected }) {
+    const allSelected = Object.keys(selected).length === 5
 
-    function handleFormSubmit(e) {
-        e.preventDefault()
-        console.log("selected options submited")
+    function handleFormSubmit() {
+        if (allSelected === false) return
+        setPage("resultsPage")
     }
 
     return (
         <>
-        <div className="blob blob-top"></div>
-        <div className="blob blob-bottom"></div>
+        <div className="blob blob-top-quiz"></div>
+        <div className="blob blob-bottom-quiz"></div>
         <div className="quiz-page-content">
             <div className="quiz-page-questions">
                 <section className="question-section">
@@ -104,7 +105,7 @@ export default function QuizPage({ selected, setSelected }) {
                     </form>
                 </section>
             </div>
-            <button onClick={handleFormSubmit} className="submit-btn">Check Answers</button>
+            <button onClick={handleFormSubmit} disabled={!allSelected} className={"submit-btn" +  (allSelected ? "" : " disabled")}>Check Answers</button>
         </div>
         </>
     )
