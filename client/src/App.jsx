@@ -6,9 +6,13 @@ import ResultsPage from './pages/ResultsPage'
 export default function App() {
     const [page, setPage] = React.useState("startPage")
 
+    function startQuiz()  {
+        setPage("quizPage")
+    }
+
     return (
         <>
-            {page === "startPage" ? <StartPage /> : page === "quizPage" ? <QuizPage /> : <ResultsPage />}
+            {page === "startPage" ? <StartPage startQuiz={startQuiz} /> : page === "quizPage" ? <QuizPage /> : <ResultsPage />}
         </>
     )
 }

@@ -1,9 +1,11 @@
-export default function StartPage() {
+export default function StartPage(props) {
     return (
         <section className="start-page-content">
-            <h1>Quizzical</h1>
-            <p>Test your knowledge!</p>
-            <button>Start Quiz</button>
+            <div className="blob blob-top"></div>
+            <div className="blob blob-bottom"></div>
+            <h1 className="main-title">Quizzical</h1>
+            <p className="main-subheading">Test your knowledge!</p>
+            <button onClick={props.startQuiz} className="start-button">Start Quiz</button>
         </section>
     )
 }
