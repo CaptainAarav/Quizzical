@@ -115,11 +115,13 @@ body {
     align-items: start;
     justify-content: space-between;
     gap: 1rem;
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 .question-section {
     border-bottom: 1px solid #DBDEF0;
-    width: 399px;
+    width: min(550px, 90vw);
 }
 
 .question-text {
