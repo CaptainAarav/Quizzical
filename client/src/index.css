@@ -128,6 +128,7 @@ body {
     color: #293264;
     font-size: 1rem;
     font-family: "Karla", sans-serif;
+    margin-top: 0;
 }
 
 .submit-btn {
@@ -180,7 +181,27 @@ body {
 }
 
 .question-form {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     display: flex;
     gap: 1rem;
+}
+
+.irrelevant {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.correct {
+    background-color: #94D7A2;
+    color: #293264;
+    border: none;
+    cursor: default;
+}
+
+.incorrect {
+    opacity: 0.5;
+    background-color: #94D7A2;
+    color: #293264;
+    border: none;
+    cursor: default;
 }

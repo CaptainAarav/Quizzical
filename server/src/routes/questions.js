@@ -15,6 +15,10 @@ router.get("/", async (req, res) => {
     const response = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
     const data = await response.json()
 
+    if (data.response_code !== 0) {
+        return res.status(503).json({ error: "Failed to fetch questions, try again shortly" })
+    }
+
     const questions = data.results.map(dataSection => {
         return {
             question: he.decode(dataSection.question),

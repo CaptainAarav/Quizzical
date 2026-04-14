@@ -3,12 +3,18 @@ import StartPage from './pages/StartPage'
 import QuizPage from './pages/QuizPage'
 import ResultsPage from './pages/ResultsPage'
 
-export default async function App() {
+export default function App() {
     const [page, setPage] = React.useState("startPage")
     const [selected, setSelected] = React.useState({})
+    const [data, setData] = React.useState([])
+    const [newGame, setNewGame] = React.useState(false)
 
-    const response = await fetch("http://localhost:3000/questions")
-    const data = await response.json()
+    React.useEffect(() => {
+        setSelected({})
+        fetch("http://localhost:3000/questions")
+            .then(res => res.json())
+            .then(json => setData(json))
+    }, [newGame])
 
     function startQuiz()  {
         setPage("quizPage")
@@ -16,7 +22,7 @@ export default async function App() {
 
     return (
         <>
-            {page === "startPage" ? <StartPage startQuiz={startQuiz} /> : page === "quizPage" ? <QuizPage data={data} setPage={setPage} selected={selected} setSelected={setSelected} /> : <ResultsPage data={data} selected={selected} setSelected={setSelected} />}
+            {page === "startPage" ? <StartPage startQuiz={startQuiz} /> : page === "quizPage" ? <QuizPage data={data} setPage={setPage} selected={selected} setSelected={setSelected} /> : <ResultsPage setNewGame={setNewGame} data={data} selected={selected} setPage={setPage} />}
         </>
     )
 }
