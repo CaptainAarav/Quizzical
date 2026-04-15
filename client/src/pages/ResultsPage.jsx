@@ -122,7 +122,7 @@ export default function ResultsPage({ setNewGame, data, selected, setPage }) {
                         )
                     })}
                 </div>
-                <p>{`You scored ${score}/5 correct answers`}</p>
+                <p>{`You scored ${score}/${data.length} correct answers`}</p>
                 <button onClick={restartGame} className="submit-btn">Play again</button>
             </div>
         </>
