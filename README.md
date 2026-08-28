@@ -1,8 +1,8 @@
 # Quizzical
 
-This is a quiz app made by me(Aarav Sahni) to test my React skills since I have just finshed a React course.
+This is a quiz app made by me to test my React skills since I have just finshed a React course.
 
-## Quick start
+## How to start using it
 run `npm install` to install dependencies in client aswell as server.
 run `npm start` to start the server.
 run `npm run client` to start the client.
